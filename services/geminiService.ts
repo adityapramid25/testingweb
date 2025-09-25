@@ -7,7 +7,7 @@ const API_BASE_URL = 'https://api.aladhan.com/v1';
 export const getPrayerTimes = async (city: string, country: string): Promise<PrayerData> => {
   try {
     // Using method 4: University of Islamic Sciences, Karachi.
-    const response = await fetch(`${API_BASE_URL}/timingsByCity?city=${city}&country=${country}&method=4`);
+    const response = await fetch(`${API_BASE_URL}/timingsByCity?city=Semarang&country=Indonesia&method=4`);
     
     if (!response.ok) {
       let errorMsg = 'Failed to fetch prayer times.';
