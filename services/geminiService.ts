@@ -6,8 +6,15 @@ const API_BASE_URL = 'https://api.aladhan.com/v1';
 
 export const getPrayerTimes = async (city: string, country: string): Promise<PrayerData> => {
   try {
-    // Using method 4: University of Islamic Sciences, Karachi.
-    const response = await fetch(`${API_BASE_URL}/timingsByCity?city=Semarang&country=Indonesia&method=4`);
+    // Latitude dan longitude Kota Semarang
+    const latitude = -6.9667;
+    const longitude = 110.4167;
+    const timezone = 'Asia/Jakarta'; // WIB
+
+    // Request API menggunakan latitude & longitude
+    const response = await fetch(
+      `${API_BASE_URL}/timings?latitude=${latitude}&longitude=${longitude}&method=4&timezonestring=${timezone}`
+    );
     
     if (!response.ok) {
       let errorMsg = 'Failed to fetch prayer times.';
